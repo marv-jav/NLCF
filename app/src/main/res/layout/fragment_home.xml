@@ -61,10 +61,14 @@
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/dailyVerseTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:layout_margin="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
                         android:text="John 3:16, For God so loved the world that he gave his only begotten son that whosoever believes will not perish but have eternal life." />
 
                 </RelativeLayout>
@@ -99,44 +103,17 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/dailyVerseTv"
+                        android:id="@+id/weeklyVerseTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:layout_margin="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
                         android:text="John 3:16, For God so loved the world that he gave his only begotten son that whosoever believes will not perish but have eternal life." />
 
                 </RelativeLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NLCF Celebrates"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                app:cardElevation="2dp"
-                app:strokeWidth="0dp"
-                app:cardBackgroundColor="@color/cardview_light_background">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/marve"
-                    android:rotation="90"
-                    android:scaleType="fitEnd"/>
 
             </com.google.android.material.card.MaterialCardView>
 
