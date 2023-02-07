@@ -1,0 +1,39 @@
+package com.tmmarv.nlcf;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+@SuppressLint("CustomSplashScreen")
+public class SplashActivity extends AppCompatActivity {
+
+    CircularProgressIndicator mIndicator;
+    FirebaseAuth mAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+
+        mIndicator = findViewById(R.id.progressCirc);
+        mAuth = FirebaseAuth.getInstance();
+        mIndicator.show();
+
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            FirebaseUser user = mAuth.getCurrentUser();
+            if (user != null) {
+                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+            } else {
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            }
+        }, 1000);
+    }
+}

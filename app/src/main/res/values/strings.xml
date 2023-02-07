@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">NLCF</string>
+    <string name="name">Name</string>
+    <string name="register">Register</string>
+    <string name="already_a_member">Already a member?</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="where_love_lives">Where love lives...</string>
+    <string name="the_word_for_the_whole_world">The word for the whole world...</string>
+    <string name="unit">Unit</string>
+    <string name="password">Password</string>
+    <string name="please_wait">Please Wait...</string>
+    <string name="home">Home</string>
+    <string name="members">Members</string>
+    <string name="books">Books</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
