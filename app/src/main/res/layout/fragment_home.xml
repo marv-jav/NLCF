@@ -50,7 +50,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView"
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 app:cardElevation="2dp"
                 app:strokeWidth="0dp">
@@ -92,7 +92,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 app:cardElevation="2dp"
                 app:strokeWidth="0dp">

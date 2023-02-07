@@ -14,12 +14,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.tmmarv.nlcf.R;
 import com.tmmarv.nlcf.ScheduleActivity;
 import com.tmmarv.nlcf.SermonsActivity;
@@ -40,6 +42,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         getDailyVerse();
+        getWeeklyVerse();
 
         calendarBtn = view.findViewById(R.id.calendarBtn);
         sermonsBtn = view.findViewById(R.id.sermonBtn);
@@ -53,13 +56,16 @@ public class HomeFragment extends Fragment {
     }
 
     private void getDailyVerse() {
-        db.collection("daily").document(mAuth.getCurrentUser().getUid()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                assert value != null;
-                String verse = value.getString("daily");
-                dailyVerse.setText(verse);
-            }
+        db.collection("daily").document("tn7FR2ZlsgSnEBN5kqgs2SSM4lX2").addSnapshotListener((value, error) -> {
+            String field = value.getString("daily");
+            dailyVerse.setText(field);
+        });
+    }
+
+    private void getWeeklyVerse() {
+        db.collection("weekly").document("tn7FR2ZlsgSnEBN5kqgs2SSM4lX2").addSnapshotListener((value, error) -> {
+            String field = value.getString("weekly");
+            weeklyVerse.setText(field);
         });
     }
 
