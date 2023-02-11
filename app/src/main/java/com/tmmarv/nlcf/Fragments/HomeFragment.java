@@ -1,5 +1,6 @@
 package com.tmmarv.nlcf.Fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,7 +36,10 @@ public class HomeFragment extends Fragment {
     private TextView dailyVerse;
     private TextView weeklyVerse;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ProgressBar load;
+    private ProgressBar loadW;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -48,6 +53,8 @@ public class HomeFragment extends Fragment {
         sermonsBtn = view.findViewById(R.id.sermonBtn);
         dailyVerse = view.findViewById(R.id.dailyVerseTv);
         weeklyVerse = view.findViewById(R.id.weeklyVerseTv);
+        load = view.findViewById(R.id.verse_load);
+        loadW = view.findViewById(R.id.word_load);
 
         calendarBtn.setOnClickListener(v -> startActivity(new Intent(getActivity(), ScheduleActivity.class)));
         sermonsBtn.setOnClickListener(v -> startActivity(new Intent(getActivity(), SermonsActivity.class)));
@@ -59,6 +66,7 @@ public class HomeFragment extends Fragment {
         db.collection("daily").document("tn7FR2ZlsgSnEBN5kqgs2SSM4lX2").addSnapshotListener((value, error) -> {
             String field = value.getString("daily");
             dailyVerse.setText(field);
+            load.setVisibility(View.GONE);
         });
     }
 
@@ -66,6 +74,7 @@ public class HomeFragment extends Fragment {
         db.collection("weekly").document("tn7FR2ZlsgSnEBN5kqgs2SSM4lX2").addSnapshotListener((value, error) -> {
             String field = value.getString("weekly");
             weeklyVerse.setText(field);
+            loadW.setVisibility(View.GONE);
         });
     }
 
