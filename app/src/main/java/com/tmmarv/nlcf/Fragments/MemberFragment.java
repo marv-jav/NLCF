@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -45,6 +46,9 @@ public class MemberFragment extends Fragment {
         mMemberAdapter = new MemberAdapter(getActivity(), mMemberList);
         mProgressBar = view.findViewById(R.id.member_load);
         db = FirebaseFirestore.getInstance();
+
+        memberRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        memberRecycler.setHasFixedSize(true);
 
         db.collection("members").get().addOnSuccessListener(queryDocumentSnapshots -> {
             if (!queryDocumentSnapshots.isEmpty()) {

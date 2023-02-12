@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -41,6 +42,12 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         holder.memberName.setText(memberModel.getName());
         holder.memberPost.setText(memberModel.getPosition());
         Picasso.get().load(memberModel.getImageUrl()).into(holder.memberImage);
+        holder.clicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -52,12 +59,14 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         private ImageView memberImage;
         private TextView memberName;
         private TextView memberPost;
+        private CardView clicker;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             memberImage = itemView.findViewById(R.id.member_image);
             memberName = itemView.findViewById(R.id.member_name);
             memberPost = itemView.findViewById(R.id.member_post);
+            clicker = itemView.findViewById(R.id.clicker);
         }
     }
 }
