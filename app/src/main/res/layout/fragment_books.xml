@@ -37,7 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             app:contentPadding="10dp"
-            app:cardCornerRadius="5dp"
             app:cardElevation="5dp"
             android:layout_margin="3dp"
             android:clickable="true"
@@ -48,8 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="Books on Growth"
                 android:layout_gravity="center_vertical"
-                android:textStyle="bold"
-                android:textColor="@color/md_theme_light_primary"/>
+                android:textStyle="bold"/>
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -60,7 +58,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="3dp"
             android:layout_marginStart="3dp"
-            app:cardCornerRadius="5dp"
             app:cardElevation="5dp"
             android:clickable="true"
             android:focusable="true">
@@ -69,8 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="100 Level Pdfs"
-                android:textStyle="bold"
-                android:textColor="@color/md_theme_light_primary"/>
+                android:textStyle="bold"/>
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -79,7 +75,6 @@
             android:layout_height="40dp"
             app:contentPadding="10dp"
             android:layout_marginTop="20dp"
-            app:cardCornerRadius="5dp"
             app:cardElevation="5dp"
             android:layout_marginEnd="3dp"
             android:layout_marginStart="3dp"
@@ -90,8 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="200 Level Pdfs"
-                android:textStyle="bold"
-                android:textColor="@color/md_theme_light_primary"/>
+                android:textStyle="bold"/>
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -100,7 +94,6 @@
             android:layout_height="40dp"
             app:contentPadding="10dp"
             android:layout_marginTop="20dp"
-            app:cardCornerRadius="5dp"
             app:cardElevation="5dp"
             android:layout_marginEnd="3dp"
             android:layout_marginStart="3dp"
@@ -112,8 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="300 Level Pdfs"
-                android:textStyle="bold"
-                android:textColor="@color/md_theme_light_primary"/>
+                android:textStyle="bold"/>
 
         </androidx.cardview.widget.CardView>
 

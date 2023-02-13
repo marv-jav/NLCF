@@ -11,18 +11,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.tmmarv.nlcf.Engine.QuestionsAndAnswers;
 import com.tmmarv.nlcf.R;
 
-public class MtsOneActivity extends AppCompatActivity {
+public class MtsOneActivity extends QuestionsAndAnswers {
 
     private static final int TIME_INTERVAL = 10000; // 10 seconds
     private CountDownTimer timer;
-
-    private static final String[] QUESTIONS = {"What is the capital of France?", "What is the currency of Japan?", "What is the highest mountain in the world?",};
-
-    private static final String[][] ANSWERS = {{"Paris", "London", "Berlin"}, {"Yen", "Dollar", "Euro"}, {"Mount Everest", "K2", "Kilimanjaro"},};
-
-    private static final int[] CORRECT_ANSWERS = {0, 0, 0};
+    private QuestionsAndAnswers mQuestionsAndAnswers;
 
     private int currentQuestion = 0;
 
@@ -40,14 +36,14 @@ public class MtsOneActivity extends AppCompatActivity {
         textQuestion = findViewById(R.id.text_question);
         radioGroup = findViewById(R.id.radio_group);
         buttonNext = findViewById(R.id.button_next);
-        answers = new int[QUESTIONS.length];
+        answers = new int[MTS_QUESTIONS.length];
 
         showQuestion();
 
         buttonNext.setOnClickListener(v -> {
             checkAnswer();
             currentQuestion++;
-            if (currentQuestion < QUESTIONS.length) {
+            if (currentQuestion < MTS_QUESTIONS.length) {
                 showQuestion();
             } else {
                 showResults();
@@ -56,13 +52,13 @@ public class MtsOneActivity extends AppCompatActivity {
     }
 
     private void showQuestion() {
-        String question = QUESTIONS[currentQuestion];
+        String question = MTS_QUESTIONS[currentQuestion];
         textQuestion.setText(question);
         radioGroup.removeAllViews();
 
-        for (int i = 0; i < ANSWERS[currentQuestion].length; i++) {
+        for (int i = 0; i < MTS_ANSWERS[currentQuestion].length; i++) {
             RadioButton radioButton = new RadioButton(this);
-            radioButton.setText(ANSWERS[currentQuestion][i]);
+            radioButton.setText(MTS_ANSWERS[currentQuestion][i]);
             radioGroup.addView(radioButton);
         }
 
@@ -75,7 +71,7 @@ public class MtsOneActivity extends AppCompatActivity {
             public void onFinish() {
                 checkAnswer();
                 currentQuestion++;
-                if (currentQuestion < QUESTIONS.length) {
+                if (currentQuestion < MTS_QUESTIONS.length) {
                     showQuestion();
                 } else {
                     showResults();
@@ -95,7 +91,7 @@ public class MtsOneActivity extends AppCompatActivity {
                 break;
             }
         }
-        answers[currentQuestion] = (selected == CORRECT_ANSWERS[currentQuestion]) ? 1 : 0;
+        answers[currentQuestion] = (selected == MTS_CORRECT_ANSWERS[currentQuestion]) ? 1 : 0;
     }
 
     private void showResults() {
@@ -108,7 +104,7 @@ public class MtsOneActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Results");
-        builder.setMessage("Your score: " + correctAnswers + " / " + QUESTIONS.length);
+        builder.setMessage("Your score: " + correctAnswers + " / " + MTS_QUESTIONS.length);
         builder.setPositiveButton("Ok", (dialog, which) -> finish());
         builder.show();
     }
