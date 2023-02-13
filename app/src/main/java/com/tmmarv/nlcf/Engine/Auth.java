@@ -25,15 +25,15 @@ public class Auth {
         mProgressDialog.show();
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                Map<String, Object> users = new HashMap<>();
-                users.put("name", name);
-                users.put("phone", phone);
-                users.put("email", email);
-                users.put("unit", "");
-                users.put("dateOfBirth", "");
-                users.put("level", "");
+                Map<String, Object> members = new HashMap<>();
+                members.put("imageUrl", "");
+                members.put("name", name);
+                members.put("department", "");
+                members.put("level", "");
+                members.put("position", "");
+                members.put("dob", "");
 
-                db.collection("users").add(users).addOnSuccessListener(documentReference -> {
+                db.collection("users").add(members).addOnSuccessListener(documentReference -> {
                     mProgressDialog.dismiss();
                     goToHome(intent, context);
                 }).addOnFailureListener(e -> {

@@ -1,25 +1,37 @@
 package com.tmmarv.nlcf.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.User;
 import com.squareup.picasso.Picasso;
+import com.tmmarv.nlcf.MemberDetailsActivity;
 import com.tmmarv.nlcf.Models.MemberModel;
 import com.tmmarv.nlcf.R;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder>{
+public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
 
     private Context mContext;
     private ArrayList<MemberModel> mMemberModels;
@@ -41,13 +53,9 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         MemberModel memberModel = mMemberModels.get(position);
         holder.memberName.setText(memberModel.getName());
         holder.memberPost.setText(memberModel.getPosition());
+        holder.memberLevel.setText(memberModel.getLevel());
+        holder.memberDepartment.setText(memberModel.getDepartment());
         Picasso.get().load(memberModel.getImageUrl()).into(holder.memberImage);
-        holder.clicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     @Override
@@ -55,18 +63,21 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         return mMemberModels.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView memberImage;
         private TextView memberName;
         private TextView memberPost;
-        private CardView clicker;
+        private TextView memberDepartment;
+        private TextView memberLevel;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             memberImage = itemView.findViewById(R.id.member_image);
             memberName = itemView.findViewById(R.id.member_name);
             memberPost = itemView.findViewById(R.id.member_post);
-            clicker = itemView.findViewById(R.id.clicker);
+            memberDepartment = itemView.findViewById(R.id.member_department);
+            memberLevel = itemView.findViewById(R.id.member_level);
         }
     }
+
 }

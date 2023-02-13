@@ -44,7 +44,4 @@
 
     </RelativeLayout>
 
-    <include
-        layout="@layout/bottom_sheet"/>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
