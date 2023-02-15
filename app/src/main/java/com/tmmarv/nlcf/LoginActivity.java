@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity {
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_SHORT).show();
-            }else {
+            } else {
                 mAuth.loginUser(email, password, this, intent);
             }
         });

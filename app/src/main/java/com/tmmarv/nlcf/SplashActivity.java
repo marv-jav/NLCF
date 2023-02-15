@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 
-    CircularProgressIndicator mIndicator;
+    ProgressBar mIndicator;
     FirebaseAuth mAuth;
 
     @Override
@@ -24,7 +25,6 @@ public class SplashActivity extends AppCompatActivity {
 
         mIndicator = findViewById(R.id.progressCirc);
         mAuth = FirebaseAuth.getInstance();
-        mIndicator.show();
 
         Handler handler = new Handler();
         handler.postDelayed(() -> {
@@ -34,6 +34,6 @@ public class SplashActivity extends AppCompatActivity {
             } else {
                 startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             }
-        }, 1000);
+        }, 600);
     }
 }

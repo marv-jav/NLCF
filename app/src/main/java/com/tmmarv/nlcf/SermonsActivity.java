@@ -52,7 +52,7 @@ public class SermonsActivity extends BaseActivity {
                 sermonRecycler.setAdapter(mSermonAdapter);
                 mSermonAdapter.notifyDataSetChanged();
                 mProgressBar.setVisibility(View.GONE);
-            }else{
+            } else {
                 mProgressBar.setVisibility(View.GONE);
                 Toast.makeText(SermonsActivity.this, "No data found!", Toast.LENGTH_SHORT).show();
             }

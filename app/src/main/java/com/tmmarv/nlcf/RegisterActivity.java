@@ -12,7 +12,7 @@ import com.tmmarv.nlcf.Engine.Auth;
 
 import java.util.Objects;
 
-public class RegisterActivity extends BaseActivity{
+public class RegisterActivity extends BaseActivity {
 
     TextInputLayout nameLay;
     TextInputLayout emailLay;
@@ -47,7 +47,7 @@ public class RegisterActivity extends BaseActivity{
 
             if (name.isEmpty() && email.isEmpty() && phone.isEmpty() && password.isEmpty()) {
                 Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_SHORT).show();
-            }else{
+            } else {
                 auth.registerUser(name, email, phone, password, this, intent);
             }
         });
